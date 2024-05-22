@@ -23,4 +23,8 @@ export class MybookingComponent {
     })
   }
 
+  deleteRes(id:any){
+    this.resService.deleteReservation(id).subscribe((data)=>{console.log("deleted reservation",data)})
+  }
+
 }

@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema(
         },
         country:{
             type:String,
-            require:true,
+            require:false,
         },
         password:{
             type:String,
@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
         },
         phone:{
             type:String,
-            require:true,
+            require:false,
         },
         isAdmin:{
             type: Boolean,
