@@ -14,5 +14,5 @@ import { ContactComponent } from '../contact/contact.component';
   styleUrl: './rooms.component.css'
 })
 export class RoomsComponent {
-
+  
 }

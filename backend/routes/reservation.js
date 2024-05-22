@@ -7,7 +7,7 @@ import { verifyToken } from "../utils/verifyToken.js";
 
 router.post("/createres",verifyToken, createReservation);
 //getall
-router.get("/", verifyToken, getAllReservations);
+router.get("/", getAllReservations);
 //UPDATE
 router.put("/:id", verifyToken, updateReservation);
 //DELETE

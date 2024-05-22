@@ -23,7 +23,18 @@ const db_connect = async () => {
     }
 }
 
-app.use(cors());
+
+
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:4200'
+}));
+
+app.get('/test', (req,res)=>{
+    res.json('user info');
+});
+
+
 app.use(cookieParser());
 app.use(express.json());
 

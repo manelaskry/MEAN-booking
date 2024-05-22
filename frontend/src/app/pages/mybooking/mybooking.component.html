@@ -1,0 +1,35 @@
+
+<section class="text-gray-400 bg-gray-800 body-font ">
+    <div class="container px-5 py-24 mx-auto ">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col items-center justify-center text-center w-full mb-10">
+                <h1 class="text-2xl font-medium title-font mb-4 text-white tracking-widest">MY BOOKINGS</h1>
+                <div class="w-16 h-1 rounded-full bg-indigo-500"></div>
+            </div>
+        </div>
+
+
+        <div class="pl-40" *ngFor="let reservation of reservationList">
+            <div class="flex flex-wrap -m-4">
+                <div class="p-8 ">
+                  <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                    <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://www.multiburo.com/files/CENTRES%20FRANCE/LAZ-Paris%20Gare%20Saint%20Lazare/LAZ-location%20salle%20de%20reunion%20paris%208%20saint%20lazare.jpg">
+                    <div class="flex-grow sm:pl-8">
+                      <h2 class="title-font font-medium text-lg text-white">{{reservation.startTime}}</h2>
+                      <h3 class="text-gray-500 mb-3">{{reservation.endTime}}</h3>
+                      <p class="mb-4">{{reservation.room}} </p>
+                     
+                    </div>
+                    <div class=" ml-20">
+                      <button class="bg-orangeS hover:bg-orange-500 text-white font-bold py-2 px-4 rounded">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+           
+        </div>
+    </div>
+
+</section>
+

@@ -1,10 +1,11 @@
 import Room from "../models/Room.js";
 import Reservation from "../models/Reservation.js";
 import { verifyToken } from "../utils/verifyToken.js";
+import {sendReservationConfirmationEmail} from "../utils/emailService.js"
 
 
 export const createReservation = async (req, res, next) => {
-    const { roomId, startTime, endTime } = req.body;
+    const { roomId,userId ,startTime, endTime } = req.body;
 
     try {
         verifyToken(req, res, async () => {
@@ -36,10 +37,16 @@ export const createReservation = async (req, res, next) => {
 
         const reservation = new Reservation({
             room: roomId,
+            user:userId,
             startTime,
             endTime
         });
         await reservation.save();
+        await reservation.populate('user').then(p=>console.log(p))
+        .catch(error=>console.log(error));
+        await reservation.populate('room').then(p=>console.log(p))
+        .catch(error=>console.log(error));
+        sendReservationConfirmationEmail(reservation.user.email, reservation);
 
         res.status(200).json(reservation);
     });
