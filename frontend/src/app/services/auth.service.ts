@@ -14,17 +14,17 @@ export class AuthService {
   login(
     username: string,
     password: string
-  ): Observable<{ token: string; user: any }> {
+  ): Observable<{ token: string; otherDetails: any }> {
     return this.httpClient
-      .post<{ token: string; user: any }>(this.AuthURL + 'login', {
+      .post<{ token: string; otherDetails: any }>(this.AuthURL + 'login', {
         username,
         password,
       })
       .pipe(
         tap((response) => {
-          console.log('Login response:', response);
+          console.log('Login response:', response.otherDetails);
           if (response) {
-            
+            localStorage.setItem("user",response.otherDetails)
           } else {
             
             console.error('Login response missing token or user info');

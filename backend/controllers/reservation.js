@@ -5,7 +5,9 @@ import {sendReservationConfirmationEmail} from "../utils/emailService.js"
 
 
 export const createReservation = async (req, res, next) => {
-    const { roomId,userId ,startTime, endTime } = req.body;
+    const { startTime, endTime } = req.body.user;
+    const { roomId } = req.body.roomId;
+    
 
     try {
         verifyToken(req, res, async () => {

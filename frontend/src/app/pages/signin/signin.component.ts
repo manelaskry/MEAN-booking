@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 
@@ -15,7 +15,7 @@ export class SigninComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router:Router) {}
 
   signUp(): void {
     this.rightPanelActive = true;
@@ -26,6 +26,9 @@ export class SigninComponent {
     console.log(this.username, this.password);
     this.authService.login(this.username, this.password).subscribe((res) => {
       console.log('login', res);
+      //window.localStorage.setItem("userId", res)
+      this.router.navigate(['/app-rooms']);
     });
+    
   }
 }
