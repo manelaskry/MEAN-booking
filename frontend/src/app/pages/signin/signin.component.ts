@@ -11,18 +11,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './signin.component.css',
 })
 export class SigninComponent {
-  rightPanelActive: boolean = false;
+  
   username: string = '';
   password: string = '';
 
   constructor(private authService: AuthService) {}
 
-  signUp(): void {
-    this.rightPanelActive = true;
-  }
+  
 
   signIn(): void {
-    this.rightPanelActive = false;
+    
     console.log(this.username, this.password);
     this.authService.login(this.username, this.password).subscribe((res) => {
       console.log('login', res);

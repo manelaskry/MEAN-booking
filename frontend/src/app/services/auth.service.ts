@@ -19,7 +19,7 @@ export class AuthService {
       .post<{ token: string; user: any }>(this.AuthURL + 'login', {
         username,
         password,
-      })
+      }, { withCredentials: true })
       .pipe(
         tap((response) => {
           console.log('Login response:', response);
