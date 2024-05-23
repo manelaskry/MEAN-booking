@@ -19,13 +19,12 @@ export class ReservationComponent implements OnInit {
   
   formBuilder=inject(FormBuilder);
   bookingForm=this.formBuilder.group({
-    room:[''],
     startTime:[''],
     endTime:[''],
   });
 
  
-
+  userId:string="";
   roomId: string="";
   rooms: Room[] = [];
 
@@ -38,12 +37,18 @@ export class ReservationComponent implements OnInit {
    addReservation(){
     console.log(this.bookingForm.value);
     console.log(this.roomId);
-    this.resservice.createReservation(this.bookingForm.value, this.roomId).subscribe((res)=>{
+    console.log(this.userId);
+    
+    this.resservice.createReservation(this.bookingForm.value, this.roomId,this.userId).subscribe((res)=>{
      console.log("reservation", res)
     })
   }
 
   ngOnInit() {
+    let id=localStorage.getItem("user")
+    if(id){
+    this.userId=id
+  }
   
     this.route.queryParams.subscribe(params => {
       this.roomId = params['roomId'];

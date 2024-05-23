@@ -8,9 +8,10 @@
       <span routerLink="/app-home" class="ml-3 text-xl cursor-pointer">RoomR</span>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a routerLink="/app-rooms" class="mr-5 hover:text-white cursor-pointer">Rooms </a>
-      <a routerLink="/app-mybooking"  class="mr-5 hover:text-white cursor-pointer">MyBooking</a>
+      <a routerLink="/app-rooms" class="mr-5 hover:text-white cursor-pointer" *ngIf="loggedIn">Rooms </a>
+      <a routerLink="/app-mybooking"  class="mr-5 hover:text-white cursor-pointer" *ngIf="loggedIn">MyBooking</a>
       <a  routerLink="/app-about" class="mr-5 hover:text-white cursor-pointer">About us</a>
+      <a  routerLink="/app-signin" class="mr-5 hover:text-white cursor-pointer" (click)="logout()" *ngIf="loggedIn">Logout</a>
       
     </nav>
     <button routerLink="/app-contact" class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">CONTACT

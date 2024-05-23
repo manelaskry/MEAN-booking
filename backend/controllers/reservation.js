@@ -6,7 +6,9 @@ import {sendReservationConfirmationEmail} from "../utils/emailService.js"
 
 export const createReservation = async (req, res, next) => {
     const { startTime, endTime } = req.body.user;
-    const { roomId } = req.body.roomId;
+    const roomId  = req.body.roomId;
+    const  userId  = req.body.userId;
+    console.log("create",userId,roomId);
     
 
     try {
@@ -48,7 +50,7 @@ export const createReservation = async (req, res, next) => {
         .catch(error=>console.log(error));
         await reservation.populate('room').then(p=>console.log(p))
         .catch(error=>console.log(error));
-        sendReservationConfirmationEmail(reservation.user.email, reservation);
+       // sendReservationConfirmationEmail(reservation.user.email, reservation);
 
         res.status(200).json(reservation);
     });
