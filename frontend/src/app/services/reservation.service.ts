@@ -16,8 +16,8 @@ export class ReservationService {
     return this.httpClient.get<any[]>(`${this.baseURL}`);
   }
 
-  createReservation(user: any): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL+'createres'}`, user);
+  createReservation(user: any, roomId:string): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL+'createres'}`, {user,roomId});
   }
 
   deleteReservation(id: number): Observable<Object> {

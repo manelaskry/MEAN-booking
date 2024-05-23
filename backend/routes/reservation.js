@@ -5,7 +5,7 @@ import { createReservation, getAllReservations, getReservationById, updateReserv
 import { verifyToken } from "../utils/verifyToken.js";
 
 
-router.post("/createres",verifyToken, createReservation);
+router.post("/createres", createReservation);
 //getall
 router.get("/", getAllReservations);
 //UPDATE

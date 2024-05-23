@@ -30,6 +30,7 @@ export const login = async(req,res,next) => {
         if (!IsPasswordCorrect) return next(createError(400,"password incorrect"));
 
         const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin, username: user.username}, process.env.JWT)
+        console.log(token)
         
         const {password , isAdmin, ...otherDetails}= user._doc//This syntax is using object destructuring to extract specific properties from the user
        
