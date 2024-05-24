@@ -20,11 +20,14 @@ export class RoomsComponent {
   rooms: Room[] = [];
   roomService = inject(RoomService);
   ngOnInit() {
+    
     this.roomService.getRooms().subscribe(
       (result) => {
       this.rooms = result;
       console.log(this.rooms);
+      
     });
+    
   }
 
 

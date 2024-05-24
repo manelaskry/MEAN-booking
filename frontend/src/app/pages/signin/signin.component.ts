@@ -23,10 +23,15 @@ export class SigninComponent {
     
     console.log(this.username, this.password);
     this.authService.login(this.username, this.password).subscribe((res) => {
-      console.log('login', res);
+      console.log('login', res.userId);
       //window.localStorage.setItem("userId", res)
       this.router.navigate(['/app-rooms']);
+      
+      
     });
+    
+    
+    
     
   }
 }
